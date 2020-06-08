@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2>Text slides after this: <span class="rotate-parent">
+                    <span>First</span>
+                    <span>Second</span>
+                    <span>Third</span>
+                    <span>Fourth</span>
+                </span></h2>
+        </div>
+    </div>
+</div>
+
+<style>
+    .rotate-parent {
+        overflow: hidden;
+        display: inline-block;
+        position: relative;
+        vertical-align: top;
+    }
+
+    .active-rot {
+        position: absolute;
+        top: 0px;
+        transition: 1s all;
+        width: max-content;
+    }
+
+    .next-rot {
+        position: absolute;
+        top: 100%;
+        color: transparent;
+        transition: 1s all;
+        width: max-content;
+    }
+
+    .last-rot {
+        position: absolute;
+        top: -100%;
+        transition: 1s all;
+        color: transparent;
+    }
+</style>
