@@ -1,7 +1,5 @@
 let rotates = document.getElementsByClassName("rotate-parent");
 let parents = document.getElementsByClassName("rotate-site");
-
-
 let activeIndexes = {};
 function rotateText(i) {
   let prevIndex = activeIndexes[i];
@@ -22,15 +20,19 @@ function rotateText(i) {
     rotates[i].style.height = rotates[i].children[activeIndexes[i]].scrollHeight + "px"
   }
   else {
-    rotates[i].children[activeIndexes[i]].style.whiteSpace = "nowrap";
     rotates[i].style.height = rotates[i].children[activeIndexes[i]].scrollHeight + "px";
     rotates[i].style.width = rotates[i].children[activeIndexes[i]].scrollWidth + "px";
+  }
+  if (prevIndex == nextIndex) {
+    rotates[i].children[activeIndexes[i]].className = "active-rot";
+    rotates[i].children[prevIndex].className = "last-rot";
+    setTimeout(function () { rotates[i].children[nextIndex].className = "next-rot" }, 1000);
+    return;
   }
   rotates[i].children[activeIndexes[i]].className = "active-rot";
   rotates[i].children[prevIndex].className = "last-rot";
   rotates[i].children[nextIndex].className = "next-rot";
 }
-
 for (let i = 0; i < rotates.length; i++) {
   activeIndexes[i] = 0;
   rotates[i].style.width = 50 + "vw";
